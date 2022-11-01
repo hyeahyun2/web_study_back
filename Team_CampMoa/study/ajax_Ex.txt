@@ -1,0 +1,29 @@
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append('email', form['email'].value);
+    formData.append('password', form['password'].value);
+    formData.append('autosign', form['autosign'].checked);
+    xhr.open('POST', './userLogin');
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            cover.hide();
+            if (xhr.status >= 200 && xhr.status < 300) {
+                const responseJson = JSON.parse(xhr.responseText);
+                switch (responseJson['result']) {
+                    case 'success':
+                        window.location.href = '/';
+                        break;
+                    case 'suspended':
+                        warning.show('이용이 일시적으로 중지된 회원입니다.');
+                        break;
+                    default:
+                        warning.show('이메일 혹은 비밀번호가 올바르지 않습니다.');
+                        form['email'].focusAndSelect();
+                }
+            } else {
+                warning.show('서버와 통신하지 못하였습니다. 잠시 후 다시 시도해 주세요.');
+            }
+        }
+    };
+    xhr.send(formData);
+};

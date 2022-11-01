@@ -1,0 +1,4 @@
+JSONObject responseJson = new JSONObject();
+// responseJson.put(전달내용);
+responseJson.put();
+return responseJson.toString();
