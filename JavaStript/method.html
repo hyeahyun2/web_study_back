@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 함수를 설정할 때 기본값 부여 가능
+    function earnings (name, wage = 8500, hours = 40){
+      console.log(`# ${name} 님의 급여 정보`);
+      console.log(`- 시급 : ${wage}원`);
+      console.log(`- 근무 시간 : ${hours}시간`);
+      console.log(`- 급여 : ${wage * hours}원`);
+      console.log('');
+    }
+    // 해당하는 매개변수를 지정해주지 않을 시 -> 기본값으로 대체
+    earnings(`smith`);
+    earnings(`adam`,10000 );
+    earnings(`tom`, 10000, 52);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
