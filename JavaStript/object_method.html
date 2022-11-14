@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>속성 수정</title>
+  <script>
+    let info = {
+      subject: 'css',
+      credit: 1,
+      printOut: function(){
+        return this.subject + "," + this.credit + "학점";
+      }
+    }
+    console.log(info.subject);
+    console.log(info.credit);
+    console.log(info.printOut());
+
+    info.days = 20;
+    console.log(info.days);
+
+    delete info.credit;
+    console.log(info.credit);
+
+    info.printOut = function(){
+      return this.subject + ',' + this.days + '일';
+    }
+    console.log(info.printOut());
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

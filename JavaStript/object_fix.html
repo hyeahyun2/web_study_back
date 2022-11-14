@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 속성 추가/제거</title>
+  <script>
+    const student = {};
+    student.name = 'smith';
+    student.hobby = 'climbing';
+    student.hopeJob = 'date scientist';
+
+    // JSON.stringify(value, replacer, space)
+    console.log(JSON.stringify(student, null, 2));
+    // JSON.stringify : 객체를 콘솔에서 출력을 쉽게 하는 방법
+    console.log(student);
+
+    delete student.hopeJob;
+    console.log(JSON.stringify(student, null, 2));
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

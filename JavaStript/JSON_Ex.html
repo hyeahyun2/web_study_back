@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+  <script>
+    // 자바 스크립트 객체를 JSON 문자열로 변환할 때는 JSON.stringify() 메소드를 사용
+    const data = [ // 배열형태로 객체 생성
+      {
+        name : '리팩터링 2판',
+        price: 15000,
+        publisher: '한빛미디어'
+      },
+      {
+        name : '리팩터링 자바스크립트',
+        price: 36000,
+        publisher: '길벗'
+      }
+    ];
+
+    console.log(JSON.stringify(data, null, 2));
+    /* 결과
+      [
+        {
+          "name": "리팩터링 2판",
+          "price": 15000,
+          "publisher": "한빛미디어"
+        },
+        {
+          "name": "리팩터링 자바스크립트",
+          "price": 36000,
+          "publisher": "길벗"
+        }
+      ]
+    */
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>외부 데이터 읽기</title>
+  <script>
+    // 외부 데이터 파싱해서 자바스크립트의 객체로 바꾸기
+    const getJSON = function(){
+      // JSON 파일 읽기
+      const requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+      const request = new XMLHttpRequest(); // 페이지 새로고침 없이 페이지 업뎃? 하기
+      // 브라우저와 서버간의 통신에 사용되는 객체. 브라우저를 새로 고침 없이 사용하게 해줌
+      // 'GET' : form태그의 속성 method의 속성값 get과 같음!
+      request.open('GET', requestURL); // 'get'방식으로, 지정된 URL로 페이지를 요청을 만듬
+      request.send(); // 요청을 보냄
+      request.onload = function(){
+        // JSON 자체는 문자열
+        let superHeroes = request.response; // .response : 답변 받은 것
+        console.log(superHeroes);
+        console.log(typeof superHeroes);
+
+        let data = JSON.parse(superHeroes);
+        console.log(data);
+        document.write(data.homeTown);
+        console.log(typeof data);
+      }
+    }
+    // getJSON();
+    document.addEventListener("DOMContentLoaded",()=>{
+      document.querySelector("button").addEventListener("click",getJSON);
+    })
+  </script>
+</head>
+<body>
+  <button>클릭</button>
+</body>
+</html>

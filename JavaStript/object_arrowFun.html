@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>functiont선언과 화살표함수 차이</title>
+  <script>
+    const test = {
+      a: function(){ // 익명함수로 선언
+        console.log(this);
+      },
+      b: ()=>{ // 화살표 함수로 선언
+        console.log(this);
+      }
+    }
+    // 메소드 호출
+    test.a(); // test 객체를 출력
+    test.b(); // Window 객체 출력
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

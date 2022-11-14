@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>클릭시 타이틀!</title>
+  <script>
+    const getJSON = function(){
+      const requestURL = 'https://jsonplaceholder.typicode.com/todos/1';
+      const request = new XMLHttpRequest();
+      request.open('GET', requestURL);
+      request.send();
+      request.onload = function(){
+        let superHeroes = request.response;
+        let data = JSON.parse(superHeroes);
+        console.log(data.title);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", ()=>{
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", getJSON);
+    })
+  </script>
+</head>
+<body>
+  <button>클릭</button>
+</body>
+</html>
