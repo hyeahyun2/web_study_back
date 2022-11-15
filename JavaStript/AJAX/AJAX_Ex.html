@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * { margin: 0; padding: 0; }
+    nav { background-color: brown; height: 100px; display: flex; justify-content: center; }
+    nav span {
+      padding: 20px; color: #fff;
+      cursor: pointer;
+    }
+    section { background-color: #fff; height: 200px;}
+    article { font-size: 20px; width: 800px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span data-get="2">메뉴 2</span>
+    <span data-get="1">메뉴 1</span>
+  </nav>
+  <section>
+    <article></article>
+  </section>
+  <script>
+    // 페이지 중에서 변경할 필요가 있는 해당 내용만 바꿈
+    const xhr = new XMLHttpRequest();
+    const articleItem = document.querySelector("article");
+    const items = document.querySelectorAll("nav span");
+    // console.log(items);
+
+    for(const item of items){
+      item.addEventListener("click",function(){
+        page = this.getAttribute("data-get"); // data-get 속성 이용
+        // console.log(page);
+
+        xhr.open('GET', `./contents_${page}.html`); //HTTP 요청 초기화. 통신 방식과 url 결정
+        xhr.send(); // url에 요청 보내기
+        // 이벤트 등록. XMLHttpRequest 객체의 readyState 프로퍼티 값이 변할 때마다 자동으로 호출
+        xhr.onreadystatechange = ()=>{
+          // readyState 프로퍼티의 값이 DONE : 요청한 데이터의 처리가 완료되어 응답할 준비가 완료됨
+          if(xhr.readyState !== XMLHttpRequest.DONE) return;
+          console.log(xhr.status, xhr.statusText);
+          if(xhr.status === 200){ // 서버(url)에 문서가 존재할 때
+            articleItem.innerHTML = xhr.response;
+          }
+          else { // 서버(url)에 문서가 존재하지 않을 때
+            console.log("Error", xhr.status, xhr.statusText);
+          }
+        }
+      })
+    }
+  </script>
+</body>
+</html>

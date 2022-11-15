@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정규표현식</title>
+  <script type="text/javascript">
+    function checkForm(){
+      let regExp = /Java/i;
+      console.log(typeof regExp);
+      let str = document.frm.title.value;
+      if(regExp.test(str)){ // .test(값) : 값에 해당 변수(문자열)이 포함되어 있는지 -> boolean형태로 반환
+        // .exec() : 매개변수 값으로 전달되는 문자열에서 정규 표현식에 부합된 문자열을 추출하여 반환
+        let result = regExp.exec(str);
+        alert(result[0]);
+      }
+    }
+  </script>
+</head>
+<body>
+  <form name="frm">
+    <p>제목 : <input type="text" name="title">
+      <input type="button" value="전송" onclick="checkForm()">
+    </p>
+  </form>
+</body>
+</html>
