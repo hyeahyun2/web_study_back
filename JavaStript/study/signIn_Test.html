@@ -8,17 +8,17 @@
   <script src="./signIn_Test.js" defer></script>
 </head>
 <body>
-  <form action="http://nomad1st.cafe24.com/mentor/section_14/action.php" name="signIn" method="post">
+  <form action="#" name="signIn" method="post">
     <p> 아이디<br> 
       <input type="text" name="id">
-      <input type="button" value="중복검사" onclick="checkId()">
+      <input type="button" value="중복검사" onclick="overId()">
     </p>
     <p> 비밀번호<br><input type="password" name="passwd"></p>
-    <p> 비밀번호 확인<br><input type="password" name="passwdCheck"></p>
+    <p> 비밀번호 확인<br><input type="password" name="rePasswd"></p>
     <p> 이름<br><input type="text" name="name"></p>
     <p> 별명<br>
       <input type="text" name="nick"> 
-      <input type="button" value="중복검사" onclick="checkNick()">
+      <input type="button" value="중복검사" onclick="overNick()">
     </p>
     <p> 성별 :
       <input type="radio" name="sex" value="남성" checked>남성
