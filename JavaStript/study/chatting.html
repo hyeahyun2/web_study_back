@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {box-sizing: border-box;}
+    .chat-content {
+      width: 300px; height: 350px; 
+      overflow-y: scroll;
+      background: #c4e3fd;
+    }
+    .line {margin-top: 10px; display: flex;}
+    .chat-box {
+      background: #fff; 
+      max-width: 250px;
+      padding: 5px; margin: 5px;
+    }
+    .mine { margin-left: auto; background: #f5f966;}
+    #input { width: 220px; outline: none; border: 1px solid #8e8e8e;}
+    #input:focus { border: 2px solid #000;}
+    #send { 
+      width: 50px;
+      padding: 5px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-content">
+    <div class="line">
+      <span class="chat-box">안녕?</span>
+    </div>
+    <div class="line">
+      <span class="chat-box mine">안녕!</span>
+    </div>
+  </div>
+  <input class="chat-box" id="input">
+  <button id="send">전송</button>
+
+  <script>
+    const btn = document.querySelector("#send");
+    const input = document.querySelector("#input");
+    function sendChat(){
+      let input = document.querySelector("#input").value;
+      var template = `<div class="line">
+      <span class="chat-box mine">${input}</span>
+      </div>`;
+      document.querySelector(".chat-content").insertAdjacentHTML("beforeend", template);
+      document.querySelector("#input").value = null;
+    }
+
+    btn.addEventListener("click", sendChat);
+    document.addEventListener("keyup", function(e){
+      if(e.keyCode === 13 && input.value.length != 0){
+        sendChat();
+      }
+    })
+  </script>
+</body>
+</html>
