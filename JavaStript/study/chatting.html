@@ -12,16 +12,16 @@
       overflow-y: scroll;
       background: #c4e3fd;
     }
-    .line {margin-top: 10px; display: flex;}
+    .chatLine {margin-top: 10px; display: flex;}
     .chat-box {
       background: #fff; 
       max-width: 250px;
       padding: 5px; margin: 5px;
     }
-    .mine { margin-left: auto; background: #f5f966;}
-    #input { width: 220px; outline: none; border: 1px solid #8e8e8e;}
-    #input:focus { border: 2px solid #000;}
-    #send { 
+    .chatMine { margin-left: auto; background: #f5f966;}
+    #chatInput { width: 220px; outline: none; border: 1px solid #8e8e8e;}
+    #chatInput:focus { border: 2px solid #000;}
+    #Chatsend { 
       width: 50px;
       padding: 5px;
       border: 1px solid #000;
@@ -30,31 +30,31 @@
 </head>
 <body>
   <div class="chat-content">
-    <div class="line">
+    <div class="chatLine">
       <span class="chat-box">안녕?</span>
     </div>
-    <div class="line">
-      <span class="chat-box mine">안녕!</span>
+    <div class="chatLine">
+      <span class="chat-box chatMine">안녕!</span>
     </div>
   </div>
-  <input class="chat-box" id="input">
-  <button id="send">전송</button>
+  <input class="chat-box" id="chatInput">
+  <button id="Chatsend">전송</button>
 
   <script>
-    const btn = document.querySelector("#send");
-    const input = document.querySelector("#input");
+    const btn = document.querySelector("#Chatsend");
+    const chatInput = document.querySelector("#chatInput");
     function sendChat(){
-      let input = document.querySelector("#input").value;
-      var template = `<div class="line">
-      <span class="chat-box mine">${input}</span>
+      let chatInput_v = document.querySelector("#chatInput").value;
+      var template = `<div class="chatLine">
+      <span class="chat-box chatMine">${chatInput_v}</span>
       </div>`;
       document.querySelector(".chat-content").insertAdjacentHTML("beforeend", template);
-      document.querySelector("#input").value = null;
+      document.querySelector("#chatInput").value = null;
     }
 
     btn.addEventListener("click", sendChat);
     document.addEventListener("keyup", function(e){
-      if(e.keyCode === 13 && input.value.length != 0){
+      if(e.keyCode === 13 && chatInput.value.length != 0){
         sendChat();
       }
     })
