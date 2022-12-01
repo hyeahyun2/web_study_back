@@ -1,0 +1,27 @@
+java.lang.ArithmeticException: / by zero
+	at javaPractice.ch_21.ExceptionMessageSave.main(ExceptionMessageSave.java:19)
+예외 메세지 : / by zero
+------------------------------
+예외발생시간 : Thu Dec 01 10:37:25 GMT+09:00 2022
+java.lang.ArithmeticException: / by zero
+	at javaPractice.ch_21.ExceptionMessageSave2.main(ExceptionMessageSave2.java:23)
+예외 메세지 : / by zero
+------------------------------
+------------------------------
+예외발생시간 : Thu Dec 01 10:37:34 GMT+09:00 2022
+java.lang.ArithmeticException: / by zero
+	at javaPractice.ch_21.ExceptionMessageSave2.main(ExceptionMessageSave2.java:23)
+예외 메세지 : / by zero
+------------------------------
+------------------------------
+예외발생시간 : Thu Dec 01 10:37:35 GMT+09:00 2022
+java.lang.ArithmeticException: / by zero
+	at javaPractice.ch_21.ExceptionMessageSave2.main(ExceptionMessageSave2.java:23)
+예외 메세지 : / by zero
+------------------------------
+------------------------------
+예외발생시간 : Thu Dec 01 10:43:59 GMT+09:00 2022
+java.lang.ArithmeticException: / by zero
+	at javaPractice.ch_21.ExceptionMessageSave2.main(ExceptionMessageSave2.java:23)
+예외 메세지 : / by zero
+------------------------------

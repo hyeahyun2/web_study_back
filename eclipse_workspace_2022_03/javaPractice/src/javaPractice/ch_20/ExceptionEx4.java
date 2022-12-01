@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ExceptionEx4 {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		String path = ".\\sample_file\\test2.text";
 		try {
 			FileInputStream fis = new FileInputStream(path);
