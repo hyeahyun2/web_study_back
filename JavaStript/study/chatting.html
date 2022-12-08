@@ -6,11 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    * {box-sizing: border-box;}
+    * {box-sizing: border-box; margin: 0; padding: 0;}
+    #head {
+      margin: 0 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .header span {
+      font-size: 24px;
+      border-bottom: 2px solid #000;
+    }
     .chat-content {
-      width: 300px; height: 350px; 
+      width: 100vw; height: 80vh; 
       overflow-y: scroll;
       background: #c4e3fd;
+    }
+    .chat-content::-webkit-scrollbar {
+    /* 스크롤바 전체 */
+      width: 8px; height: 8px;
+      background-color: #dbdbdb;
+    }
+    .chat-content::-webkit-scrollbar-thumb {
+      /* 스크롤 막대 */
+      background-color: #464646;
+      /* width: 8px; */
+      border-radius: 10px;
     }
     .chatLine {margin-top: 10px; display: flex;}
     .chat-box {
@@ -19,7 +39,7 @@
       padding: 5px; margin: 5px;
     }
     .chatMine { margin-left: auto; background: #f5f966;}
-    #chatInput { width: 220px; outline: none; border: 1px solid #8e8e8e;}
+    #chatInput { width: 80vw; outline: none; border: 1px solid #8e8e8e;}
     #chatInput:focus { border: 2px solid #000;}
     #Chatsend { 
       width: 50px;
@@ -29,6 +49,10 @@
   </style>
 </head>
 <body>
+  <div id="head">
+    <h1 class="header"><span>유저1</span></h1>
+    <a href="./chatMain.html">뒤로가기</a>
+  </div>
   <div class="chat-content">
     <div class="chatLine">
       <span class="chat-box">안녕?</span>
@@ -58,6 +82,7 @@
         sendChat();
       }
     })
+
   </script>
 </body>
 </html>

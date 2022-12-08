@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인 페이지</title>
+</head>
+<body>
+  <a href="./chatMain.html" class="chatBtn">채팅목록</a>
+  <script>
+    const aTag = document.querySelector(".chatBtn");
+
+    aTag.addEventListener("click", (e)=>{
+      e.preventDefault();
+      window.open("./chatMain.html", "채팅", " width=400, height=500");
+    })
+  </script>
+</body>
+</html>

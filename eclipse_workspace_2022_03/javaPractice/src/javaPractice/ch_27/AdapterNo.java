@@ -34,6 +34,7 @@ public class AdapterNo {
 		serviceA.runWork();
 		serviceB.runStudy();
 		
+		// 어댑터 패턴 사용
 		AdapterServiceA asa1 = new AdapterServiceA();
 		AdapterServiceB asb1 = new AdapterServiceB();
 		
