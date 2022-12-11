@@ -5,32 +5,33 @@ import java.util.Scanner;
 public class SchoolManagerView {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+		StudentManager studentManager = new StudentManager();
 		System.out.println("학생 관리 프로그램을 시작합니다.");
 		
 		while(true) {
-			System.out.println("메뉴를 선택하세요 >> 1. 학생추가 / 2. 학생 삭제 / 3. 수강신청 / " + 
+			System.out.println("메뉴를 선택하세요 >> 1. 학생추가/수정 / 2. 학생 삭제 / 3. 수강신청 / " + 
 					"4. 성적 입력 / 5. 정보 조회 / 6. 프로그램 종료");
 			int menu = input.nextInt();
 			switch(menu) {
 			case 1:
 				System.out.println("학생 추가 및 수정 메뉴 입니다.");
-				StudentManager.addStudent();
+				studentManager.addStudent();
 				break;
 			case 2:
 				System.out.println("학생 삭제 메뉴 입니다.");
-				StudentManager.removeStudent();
+				studentManager.removeStudent();
 				break;
 			case 3:
 				System.out.println("수강 신청 메뉴 입니다.");
-				StudentManager.addClass();
+				studentManager.addClass();
 				break;
 			case 4:
 				System.out.println("성적 입력 메뉴 입니다.");
-				StudentManager.setScore();
+				studentManager.setScore();
 				break;
 			case 5:
 				System.out.println("정보 조회 메뉴 입니다.");
-				StudentManager.infomStudent();
+				studentManager.infomStudent();
 				break;
 			case 6:
 				System.out.println("프로그램을 종료합니다.");
