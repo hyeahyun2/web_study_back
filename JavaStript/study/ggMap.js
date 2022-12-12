@@ -1,4 +1,5 @@
-const API_cey = 'FC93wWLF8PAM%2BjOJy3XhuFovwU9wi5a0SsUnEKYa63n%2FTikkgkOfbvc212sfQJZjAQ6udo6dFr0VvhrNG5hfTg%3D%3D';
+// const API_cey = 'FC93wWLF8PAM%2BjOJy3XhuFovwU9wi5a0SsUnEKYa63n%2FTikkgkOfbvc212sfQJZjAQ6udo6dFr0VvhrNG5hfTg%3D%3D';
+const API_cey = 'AIzaSyDa5eJ7mCSWh-6EsZjnAgXDSl8lQx4lY-A';
 
 async function getData(){
   const url=`http://apis.data.go.kr/B552061/frequentzoneBicycle/getRestFrequentzoneBicycle?ServiceKey=${API_cey}&searchYearCd=2015&siDo=27&guGun=230&type=json&numOfRows=10&pageNo=1`;
