@@ -103,43 +103,29 @@ submitBtn.addEventListener("click", function(){
   form.submit();
 });
 
-// 우편번호 검색
-const postSearch = form.postSearch;
 
-postSearch.addEventListener("click", function(){
-  new daum.Postcode({
-    oncomplete: function (data) {
-      var fullAddr = ''; // 최종 주소 변수
-      var extraAddr = ''; // 조합형 주소 변수
+// 아이디 중복 검사
+const xhr = new XMLHttpRequest();
+const checkIDBtn = document.getElementById("dblCheck1");
 
-      // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
-      if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
-        fullAddr = data.roadAddress;
-      }
-      else { // 사용자가 지번 주소를 선택했을 경우(J)
-        fullAddr = data.jibunAddress;
-      }
+const checkID = function(){
+	let memberId = form.memberId.value;
+	xhr.open("GET", "ajax_duplicateCheck.jsp?memberId=" + memberId);
+	xhr.send();
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState != XMLHttpRequest.DONE) return;
+		
+		if(xhr.status == 200){
+			const json = JSON.parse(xhr.response);
+			if(json.state){
+				alert("중복 이메일입니다. 다시 입력해주세요.");
+				form.memberId.select();
+			}
+			else {
+				alert("사용 가능한 이메일입니다.");
+			}
+		}
+	}
+}
 
-      // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
-      if (data.userSelectedType === 'R') {
-        //법정동명이 있을 경우 추가한다.
-        if (data.bname !== '') {
-          extraAddr += data.bname;
-        }
-        // 건물명이 있을 경우 추가한다.
-        if (data.buildingName !== '') {
-          extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-        }
-        // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
-        fullAddr += (extraAddr !== '' ? ' (' + extraAddr + ')' : '');
-      }
-
-      // 우편번호와 주소 정보를 해당 필드에 넣는다.
-      document.getElementById('zipCode').value = data.zonecode; //5자리 새우편번호 사용
-      document.getElementById('address1').value = fullAddr;
-
-      // 커서를 상세주소 필드로 이동한다.
-      document.getElementById('address2').focus();
-    }
-  }).open();
-})
+checkIDBtn.addEventListener("click", checkID);

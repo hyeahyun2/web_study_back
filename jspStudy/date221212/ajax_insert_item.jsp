@@ -11,7 +11,7 @@ String tableName = "todo_list";
 int num = 0;
 Statement statement = null;
 String sql = "INSERT INTO " + tableName + " (item, insertDate) VALUES('"
-		+ item +"', now()";
+		+ item +"', now())";
 
 statement = conn.createStatement();
 statement.executeUpdate(sql);
