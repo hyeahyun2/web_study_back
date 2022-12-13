@@ -34,4 +34,4 @@ if(conn != null){
 if(res != 0) state = true; // 중복 있으면 -> true
 %>
 <%-- 저장받은 db값을 json형식으로 출력(저장) --%>
-{"memberId" : <%= memberId %>, "state" : <%= state %> }
+{"memberId" : "<%= memberId %>", "state" : <%= state %> }
