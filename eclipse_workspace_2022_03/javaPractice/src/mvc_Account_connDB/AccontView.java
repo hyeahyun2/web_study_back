@@ -28,8 +28,7 @@ public class AccontView {
 				manager.display();
 				break;
 			case 6:
-				System.out.println("종료합니다.");
-				manager.disConnect();
+				manager.exitProgram();
 				stdIn.close();
 				return;
 			default:
