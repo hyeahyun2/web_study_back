@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let allTime = "2022-12-19 오전 8 : 53";
+    let words = allTime.split(' ');
+    console.log(words);
+    words = words.map(element => element.trim());
+    console.log(words);
+    let regDate = /^\d{4}-\d{1,2}-\d{1,2}$/;
+    let date = "";
+    let time = "";
+    words.forEach(element => {
+      if(regDate.test(element)) date += element;
+      else {
+        time += element + " ";
+      }
+    });
+    console.log(date);
+    console.log(time);
+  </script>
+</body>
+</html>

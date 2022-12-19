@@ -32,13 +32,17 @@
       /* width: 8px; */
       border-radius: 10px;
     }
-    .chatLine {margin-top: 10px; display: flex;}
+    .chatLine {margin-top: 10px; display: flex; align-items: flex-end;}
     .chat-box {
       background: #fff; 
       max-width: 250px;
       padding: 5px; margin: 5px;
     }
-    .chatMine { margin-left: auto; background: #f5f966;}
+    .chatMine { flex-direction: row-reverse; justify-content: flex-start; }
+    .chatMine span.chat-box { background: #f5f966;}
+    .chat-time {
+      font-size: 12px; padding-bottom: 5px;
+    }
     #chatInput { width: 80vw; outline: none; border: 1px solid #8e8e8e;}
     #chatInput:focus { border: 2px solid #000;}
     #Chatsend { 
@@ -56,9 +60,11 @@
   <div class="chat-content">
     <div class="chatLine">
       <span class="chat-box">안녕?</span>
+      <span class="chat-time">시간</span>
     </div>
-    <div class="chatLine">
-      <span class="chat-box chatMine">안녕!</span>
+    <div class="chatLine chatMine">
+      <span class="chat-box">안녕!</span>
+      <span class="chat-time">시간</span>
     </div>
   </div>
   <input class="chat-box" id="chatInput">
