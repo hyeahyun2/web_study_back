@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3>회원가입</h3>
+  <form action="http://nomad1st.cafe24.com/mentor/section_14/action.php" name="member" method="post">
+    <p> 아이디 : <input type="hidden" name="id" value="test"> <input type="button" value="아이디 중복검사"></p>
+    <p> 비밀번호 : <input type="password" name="passwd"></p>
+    <p> 이름 : <input type="text" name="name"></p>
+    <p> 연락처 : 
+      <select name="phone1">
+        <option value="010">010</option>
+        <option value="011">011</option>
+      </select>
+      <input type="text" maxlength="4" size="4" name="phone2">
+      <input type="text" maxlength="4" size="4" name="phone3">
+    </p>
+    <p> 성별 : 
+      <input type="radio" name="sex" value="남성" checked>남성
+      <input type="radio" name="sex" value="여성">여성
+    </p>
+    <p> 취미 : 
+      <!-- name을 하나로 맞추면 -> 데이터베이스에 저장할 때 하나의 컬럼에 다 저장 가능 -->
+      <!-- jsp가 아닌 경우에는 >> 아니면 name을 배열로 설정 (name = "name명[]" : 배열로 인식함) -->
+      <!-- 해당 컬럼의 크기는 넉넉히 잡아줘야함! -->
+      독서<input type="checkbox" name="hobby[]" value="독서" checked>
+      운동<input type="checkbox" name="hobby[]" value="운동">
+      영화<input type="checkbox" name="hobby[]" value="영화">
+    </p>
+    <textarea name="greeting" cols="30" rows="3" placeholder="가입인사를 적어주세요"></textarea>
+    <p>
+      <input type="submit" value="가입하기">
+      <input type="reset" value="다시쓰기">
+    </p>
+  </form>
+</body>
+</html>

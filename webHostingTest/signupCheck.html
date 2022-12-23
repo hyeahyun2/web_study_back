@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>기본 유효성 검사</title>
+  <script type="text/javascript">
+    function Checkform(){
+      let form = document.loginform;
+      if(form.id.value.length < 4 || form.id.value.length > 12){
+        alert("아이디는 4~12자 이내로 입력 가능합니다!");
+        form.id.select(); // select() = focus()
+        return;
+      }
+      else if(form.passwd.value.length < 4){
+        alert("비밀번호는 4자 이상으로 입력해야 합니다!");
+        form.passwd.select();
+        return;
+      }
+      form.submit();
+    }
+  </script>
+</head>
+<body>
+  <form name="loginform" action="http://nomad1st.cafe24.com/mentor/section_14/action.php" method="post">
+    <p> 아 이 디 : <input type="text" name="id"></p>
+    <p> 비밀번호 : <input type="password" name="passwd"></p>
+    <!-- type을 button으로 바꾸고 -> js를 이용해 전송하는 방법! -->
+    <!-- 스타일적으로 div나 span으로 전송버튼 만드는 경우가 많음! -->
+    <p><input type="button" value="전송" onclick="Checkform()"></p>
+  </form>
+</body>
+</html>
